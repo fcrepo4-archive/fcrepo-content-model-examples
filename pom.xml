@@ -91,6 +91,8 @@
               <portNames>
                 <portName>test.port</portName>
                 <portName>jms.port</portName>
+                <portName>stomp.port</portName>
+                <portName>stop.port</portName>
               </portNames>
             </configuration>
           </execution>
@@ -109,6 +111,16 @@
           <container>
             <containerId>jetty9x</containerId>
             <type>embedded</type>
+            <systemProperties>
+              <jms.port>${jms.port}</jms.port>
+              <stomp.port>${stomp.port}</stomp.port>
+              <STOP.PORT>${stop.port}</STOP.PORT>
+              <STOP.KEY>cargo-content-models</STOP.KEY>
+              <fcrepo.ispn.repo.CacheDirPath>target/fir</fcrepo.ispn.repo.CacheDirPath>
+              <fcrepo.modeshape.index.location>target/fmi</fcrepo.modeshape.index.location>
+              <fcrepo.ispn.binary.CacheDirPath>target/fib</fcrepo.ispn.binary.CacheDirPath>
+              <fcrepo.ispn.CacheDirPath>target/fi</fcrepo.ispn.CacheDirPath>
+            </systemProperties>
           </container>
           <!-- Configuration to use with the container or the deployer -->
           <deployables>
