@@ -1,0 +1,31 @@
+/*
+ * UNC Chapel Hill base content models namespace
+ *
+ * These model are an attempt to faithfully map existing Fedora 3 models
+ * without significant redesign for Fedora 4.
+ */
+<cdr = 'http://cdr.lib.unc.edu/definitions/v4/base#'>
+
+/*
+ * Generic Fedora namespace
+ */
+<fedora = 'http://fedora.info/definitions/v4/rest-api#'>
+
+/*
+ * Preserved model requires preservation metadata
+ */
+[cdr:preserved] > fedora:object mixin
+    + cdr:events (cdr:events) = cdr:events mandatory
+
+[cdr:events] > fedora:datastream mixin
+
+[cdr:sourceData] > fedora:datastream mixin
+    + cdr:technical (cdr:technical) = cdr:technical
+
+[cdr:technical] > fedora:datastream mixin
+
+/*
+ * How to constraint the object of a REFERENCE property?
+ *  - sourceData should refer to a child datastream.
+ *
+ */
